@@ -2,6 +2,7 @@ package com.epam.demo;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
@@ -18,5 +19,11 @@ public class Utils {
         return positiveCheck;
         //magic happens here
         //magic happens here
+    }
+
+    public static void main(String[] args) {
+        List<String> list =new ArrayList<>();
+        list.add("008");
+        System.out.println(isAllPositiveNumbers(list));
     }
 }
