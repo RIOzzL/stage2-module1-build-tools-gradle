@@ -1,19 +1,26 @@
 plugins {
+    id 'java-library'
     // id for library
+    id 'maven-publish'
     // id for maven to publish jar to local repository
 }
 
 java {
+    sourceCompatibility = "1.8"
 // provide sourceCompatibility
 }
 
 repositories {
+    mavenCentral()
 // provide repository, where required dependencies are located
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
+            groupId = 'org.gradle.BuildTools'
+            artifactId = 'buildTools'
+            version = '1.0'
 // provide groupId
 // provide artifactId
 // provide version
@@ -23,12 +30,17 @@ publishing {
     }
 }
 
+dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.10'
+}
 //add Apache Apache Commons Lang 3.10 (or higher) dependency
 
 jar {
     manifest {
-        //provide manifest with such attributes as 'Implementation-Title', 'Implementation-Version'
+        attributes("Implementation-Title": "BuildTools",
+                "Implementation-Version": 1.0)
     }
+    //provide manifest with such attributes as 'Implementation-Title', 'Implementation-Version'
 }
 
 test {
